@@ -2,8 +2,10 @@ export function menu(){
   const itemNames = ["Two Cheese","Century Egg","Dry Lettuce",
     "Cheesy","Burnt Bun","Tomato Bun",];
   
+  const menuItems = [];
   const menu = document.createElement("div");
   menu.id = "menu";
+  
   for(let i = 0; i < 6; i++){
     const axis = document.createElement("div");
     axis.classList.add("menu-axis", `menu-axis-${i}`);
@@ -25,7 +27,11 @@ export function menu(){
     itemFloat.appendChild(para);
     item.appendChild(itemFloat);
     axis.appendChild(item);
-    menu.appendChild(axis);
+    menuItems.push(axis);
+  }
+
+  for(let i = 5; i > -1; i--){
+    menu.appendChild(menuItems[i])
   }
 
   return menu;
