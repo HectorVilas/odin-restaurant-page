@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 #content {
@@ -7,7 +8,7 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: darkslateblue;
+  background: radial-gradient(at top, hsl(220, 50%, 30%), hsl(220, 30%, 20%));
 }
 
 /* - - - navigation - - - */
@@ -30,6 +31,7 @@ body {
 
 
 /* - - - menu - - - */
+
 #menu {
   --anim-reveal-duration: 1s;
   width: 100%;
@@ -45,15 +47,62 @@ body {
   justify-content: center;
   position: absolute;
   animation: reveal var(--anim-reveal-duration);
+  pointer-events: none;
 }
 
 .menu-item {
+  --anim-displacement: 5px;
+  --anim-time-h: 1.5s;
+  --anim-time-v: 1.25s;
   margin-left: auto;
   margin-right: auto;
-  background-color: red;
   width: 200px;
   height: 200px;
-  animation: reveal var(--anim-reveal-duration);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events: all;
+}
+
+.menu-item-0 {animation: reveal var(--anim-reveal-duration), float-h var(--anim-time-h) ease-in-out infinite;}
+.menu-item-1 {animation: reveal var(--anim-reveal-duration), float-h var(--anim-time-h) 166ms ease-in-out infinite;}
+.menu-item-2 {animation: reveal var(--anim-reveal-duration), float-h var(--anim-time-h) 332ms ease-in-out infinite;}
+.menu-item-3 {animation: reveal var(--anim-reveal-duration), float-h var(--anim-time-h) 498ms ease-in-out infinite;}
+.menu-item-4 {animation: reveal var(--anim-reveal-duration), float-h var(--anim-time-h) 664ms ease-in-out infinite;}
+.menu-item-5 {animation: reveal var(--anim-reveal-duration), float-h var(--anim-time-h) 830ms ease-in-out infinite;}
+
+.menu-item .float-vertical {
+  height: 25vmin;
+  animation: float-v var(--anim-time-v) ease-in-out infinite;
+  transition: scale 500ms cubic-bezier(.53,.01,.1,2.02);
+}
+.menu-item .float-vertical:hover {
+  scale: 125%;
+  filter: drop-shadow(0 0 .25rem white);
+}
+
+@keyframes float-h {
+  0%, 100% {transform: translateX(calc(var(--anim-displacement) * -1));}
+  50% {transform: translateX(var(--anim-displacement));}
+}
+@keyframes float-v {
+  0%, 100% {transform: translateY(calc(var(--anim-displacement) * -1));}
+  50% {transform: translateY(var(--anim-displacement));}
+}
+  
+.menu-item img {
+  height: 90%;
+  /* width: auto; */
+  aspect-ratio: 1.25/1;
+}
+
+.menu-item p {
+  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 0 .5rem black ;
 }
 
 /*axes and item rotations*/
@@ -72,6 +121,7 @@ body {
 .menu-item-5 {rotate: -300deg;}
 
 @keyframes reveal { from {rotate: 0deg;} }
+
 
 
 /* for testing */
