@@ -1,7 +1,6 @@
 import {menu} from "./menu";
 // import {test2 as t2} from "./toys";
 // import {test3} from "./about";
-import "./style.css";
 
 const body = document.querySelector("#content");
 const content = document.querySelector("#content");
