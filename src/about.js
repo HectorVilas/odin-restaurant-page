@@ -1,3 +1,6 @@
-export function test3(){
-  return "test about"
+export function about(){
+  const test = document.createElement("div");
+  test.innerText = "3";
+
+  return test;
 }

@@ -1,3 +1,6 @@
-export function test2(){
-  return "text toys"
+export function toys(){
+  const test = document.createElement("div");
+  test.innerText = "2";
+
+  return test;
 }
