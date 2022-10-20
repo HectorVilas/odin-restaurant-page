@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+}
+
+#content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: darkslateblue;
+}
+
+/* - - - navigation - - - */
+
+.nav-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.go-to-menu {
+  width: 30%;
+  background-color: royalblue;
+}
+
+
+
+/* - - - menu - - - */
+#menu {
+  --anim-reveal-duration: 1s;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-axis {
+  height: 90vmin;
+  width: 200px;
+  justify-content: center;
+  position: absolute;
+  animation: reveal var(--anim-reveal-duration);
+}
+
+.menu-item {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  animation: reveal var(--anim-reveal-duration);
+}
+
+/*axes and item rotations*/
+.menu-axis-0 {rotate: 0deg;}
+.menu-axis-1 {rotate: 60deg;}
+.menu-axis-2 {rotate: 120deg;}
+.menu-axis-3 {rotate: 180deg;}
+.menu-axis-4 {rotate: 240deg;}
+.menu-axis-5 {rotate: 300deg;}
+
+.menu-item-0 {rotate: -0deg;}
+.menu-item-1 {rotate: -60deg;}
+.menu-item-2 {rotate: -120deg;}
+.menu-item-3 {rotate: -180deg;}
+.menu-item-4 {rotate: -240deg;}
+.menu-item-5 {rotate: -300deg;}
+
+@keyframes reveal { from {rotate: 0deg;} }
+
+
+/* for testing */
+
+** {
+  outline: 1px solid gray;
+}
