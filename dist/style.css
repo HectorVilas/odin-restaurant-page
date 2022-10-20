@@ -99,8 +99,10 @@ body {
 
 .menu-item p {
   text-align: center;
+  transform: translateY(-25px);
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: white;
   text-shadow: 0 0 .5rem black ;
 }
@@ -120,7 +122,7 @@ body {
 .menu-item-4 {rotate: -240deg;}
 .menu-item-5 {rotate: -300deg;}
 
-@keyframes reveal { from {rotate: 0deg;} }
+@keyframes reveal { from {rotate: 0deg; filter: brightness(0) opacity(0) blur(10px);} }
 
 
 
