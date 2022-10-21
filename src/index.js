@@ -20,12 +20,15 @@ function navBar(){
     post.classList.add("post");
     const para = document.createElement("p");
     para.innerText = i === 0 ? "About" : "Toys";
+    const hand = document.createElement("img");
+    hand.src = "./media/images/hands/hand.svg" ;
     
     const goToMenu = document.createElement("div");
     goToMenu.classList.add("go-to-menu", i === 0 ? "menu-left" : "menu-right");
     goToMenu.addEventListener("click", menuSwap);
 
     sign.appendChild(para);
+    sign.appendChild(hand);
     goToMenu.appendChild(sign);
     goToMenu.appendChild(post);
     navBar.appendChild(goToMenu);
