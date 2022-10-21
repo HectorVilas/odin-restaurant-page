@@ -33,7 +33,10 @@ function navBar(){
 
   function menuSwap(){
     this.className.includes("menu-left") ? menuIdx-- : menuIdx++ ;
-    const i = Math.abs(menuIdx % menuList.length);
+    //cycle left fix
+    if(menuIdx < 0) menuIdx = menuList.length - 1;
+    const i = menuIdx % menuList.length;
+    console.log(i);
     content.replaceChildren(menuList[i]);
     
     const navParas = document.querySelectorAll(".go-to-menu p");
