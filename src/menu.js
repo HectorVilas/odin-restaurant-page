@@ -1,6 +1,6 @@
 export function menu(){
-  const itemNames = ["Two Cheese","Century Egg","Dry Lettuce",
-    "Cheesy","Burnt Bun","Tomato Bun",];
+  const itemNames = ["Two Cheese","Cheesy","Dry Lettuce",
+    "Century Egg","Burnt Bun","Tomato Bun",];
   
   const menuItems = [];
   const menu = document.createElement("div");
