@@ -1,6 +1,7 @@
 export function toys(){
   const test = document.createElement("div");
-  test.innerText = "2";
+  test.id = "toys"
+  test.innerText = "toys";
 
   return test;
 }
