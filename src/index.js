@@ -61,11 +61,37 @@ function rings(){
     tunnel.appendChild(ring)
   };
 
-
   return tunnel;
+}
+
+function starfield(){
+  const starfield = document.createElement("div");
+  starfield.id = "starfield";
+
+  const starCount = 90;
+  const animMax = 20;
+  const animMin = 5;
+
+  for(let i = 0; i < starCount; i++){
+    const angle = document.createElement("div");
+    angle.classList.add("star-angle");
+    angle.style.rotate = `${i*(360/starCount)}deg`;
+
+    const star = document.createElement("div");
+    const rand = Math.random() * (animMax - animMin ) + animMin;
+    star.classList.add("star");
+    console.log(rand);
+    star.style.animationDuration = `${rand}s`;
+
+    angle.appendChild(star);
+    starfield.appendChild(angle);
+  }
+
+  return starfield;
 }
 
 
 content.appendChild(menuList[0]);
+body.appendChild(starfield());
 body.appendChild(rings());
 body.appendChild(navBar());
