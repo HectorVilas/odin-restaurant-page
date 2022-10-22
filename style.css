@@ -5,6 +5,9 @@
   --menu-anim-displacement: 5px;
   --menu-anim-time-h: 1.5s;
   --menu-anim-time-v: 1.25s;
+  --hand-size: 50vmin;
+  --hand-animation-duration: 350ms;
+  --hand-animation-timing: cubic-bezier(.6,.1,.9,.34);
 }
 
 body {
@@ -206,26 +209,35 @@ body {
   position: absolute;
   left: 50%;
   top: 20%;
-  width: 100px;
-  height: 50vmin;
-  /* outline: 3px solid gray; */
+  /* width: 100px; */
+  height: var(--hand-size);
   display: flex;
   justify-content: center;
+  animation: hand-bounce-scale var(--hand-animation-duration) var(--hand-animation-timing) infinite alternate;
+  transform-origin: 50% 100%;
 }
+@keyframes hand-bounce-scale {
+  0% {transform: scaleY(100%);}
+  50% {transform: scaleY(100%);}
+  100% {transform: scaleY(95%);}
+}
+
 .hand img {
   position: absolute;
   height: 100%;
   width: auto;
+  animation: hand-bounce var(--hand-animation-duration) var(--hand-animation-timing) infinite alternate;
 }
-.hand img:nth-child(1) { animation: hand-bounce 1s ease-in-out infinite;} /*palm*/
-.hand img:nth-child(2) { animation: hand-bounce 1s ease-in-out 150ms infinite;} /*small*/
-.hand img:nth-child(3) { animation: hand-bounce 1s ease-in-out 100ms infinite;} /*middle*/
-.hand img:nth-child(4) { animation: hand-bounce 1s ease-in-out 50ms infinite;} /*index*/
-.hand img:nth-child(5) { animation: hand-bounce 1s ease-in-out 25ms infinite;} /*thumb*/
+
+.hand-palm { animation-delay: 0ms;}
+.hand-little-finger { animation-delay: 90ms;}
+.hand-middle-finger { animation-delay: 60ms;}
+.hand-index { animation-delay: 30ms;}
+.hand-thumb { animation-delay: 15ms;}
 
 @keyframes hand-bounce {
-  0%, 100% {transform: translateY(1rem);}
-  50% {transform: translateY(0rem);}
+  0% {transform: translateY(0%);}
+  100% {transform: translateY(5%);}
 }
 
 
