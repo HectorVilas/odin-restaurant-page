@@ -39,7 +39,7 @@ function navBar(){
     //cycle left fix
     if(menuIdx < 0) menuIdx = menuList.length - 1;
     const i = menuIdx % menuList.length;
-    console.log(i);
+    
     content.replaceChildren(menuList[i]);
     
     const navParas = document.querySelectorAll(".go-to-menu p");
@@ -50,8 +50,22 @@ function navBar(){
   return navBar;
 };
 
+function rings(){
+  const tunnel = document.createElement("div");
+  tunnel.id = "tunnel";
+
+  for(let i = 0; i < 10; i++){
+    const ring = document.createElement("div");
+    ring.classList.add("ring");
+  
+    tunnel.appendChild(ring)
+  };
+
+
+  return tunnel;
+}
 
 
 content.appendChild(menuList[0]);
-
+body.appendChild(rings());
 body.appendChild(navBar());
