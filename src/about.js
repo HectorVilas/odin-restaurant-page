@@ -10,6 +10,7 @@ export function about(){
     const handPart = document.createElement("img");
     handPart.classList.add(handPartsList[i]);
     handPart.src = `./media/images/hands/parts/${handPartsList[i]}.svg`;
+    handPart.classList.add(handPartsList[i]);
 
     hand.appendChild(handPart);
   };
