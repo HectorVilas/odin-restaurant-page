@@ -13,6 +13,7 @@
 body {
   margin: 0;
   overflow: hidden;
+  background: radial-gradient(black, hsl(220, 30%, 20%), hsl(220, 50%, 30%));
 }
 
 #content {
@@ -20,7 +21,93 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background: radial-gradient(at top, hsl(220, 50%, 30%), hsl(220, 30%, 20%));
+}
+
+
+/* - - - tunnel effect - - - */
+#tunnel {
+  z-index: -1;
+  isolation: isolate;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float-tunnel 30s ease-in-out infinite;
+}
+@keyframes float-tunnel {
+  0%, 100% {transform: translateX(10%);}
+  50% {transform: translateX(-10%);}
+}
+
+.ring {
+  position: absolute;
+  width: 0vmax;
+  height: 0vmax;
+  /* border-radius: 50%; */
+  animation: fly-through 5s cubic-bezier(.95,.05,.8,.04) infinite;
+}
+.ring:nth-child(1) {
+  animation-delay: 0s;
+  background: radial-gradient(
+    transparent 60%,
+    hsl(0, 100%, 30%) 60%,
+    hsl(0, 100%, 50%) 64%,
+    hsl(0, 100%, 60%) 65%,
+    hsl(0, 100%, 50%) 66%,
+    hsl(0, 100%, 30%) 70%,
+    transparent 70%
+  );
+} .ring:nth-child(2) {
+  animation-delay: 1s;
+  background: radial-gradient(
+    transparent 60%,
+    hsl(72, 100%, 30%) 60%,
+    hsl(72, 100%, 50%) 64%,
+    hsl(72, 100%, 60%) 65%,
+    hsl(72, 100%, 50%) 66%,
+    hsl(72, 100%, 30%) 70%,
+    transparent 70%
+  );
+} .ring:nth-child(3) {
+  animation-delay: 2s;
+  background: radial-gradient(
+    transparent 60%,
+    hsl(144, 100%, 30%) 60%,
+    hsl(144, 100%, 50%) 64%,
+    hsl(144, 100%, 60%) 65%,
+    hsl(144, 100%, 50%) 66%,
+    hsl(144, 100%, 30%) 70%,
+    transparent 70%
+  );
+} .ring:nth-child(4) {
+  animation-delay: 3s;
+  background: radial-gradient(
+    transparent 60%,
+    hsl(216, 100%, 30%) 60%,
+    hsl(216, 100%, 50%) 64%,
+    hsl(216, 100%, 60%) 65%,
+    hsl(216, 100%, 50%) 66%,
+    hsl(216, 100%, 30%) 70%,
+    transparent 70%
+  );
+} .ring:nth-child(5) {
+  animation-delay: 4s;
+  background: radial-gradient(
+    transparent 60%,
+    hsl(288, 100%, 30%) 60%,
+    hsl(288, 100%, 50%) 64%,
+    hsl(288, 100%, 60%) 65%,
+    hsl(288, 100%, 50%) 66%,
+    hsl(288, 100%, 30%) 70%,
+    transparent 70%
+  );
+}
+
+@keyframes fly-through {
+  0% {width: 0vmax; height: 0vmax; opacity: 0;}
+  70% {opacity: 100;}
+  100% {width: 200vmax; height: 200vmax;}
 }
 
 /* - - - navigation - - - */
