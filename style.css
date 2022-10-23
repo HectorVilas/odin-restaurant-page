@@ -15,6 +15,7 @@ body {
   margin: 0;
   overflow: hidden;
   background: radial-gradient(black, hsl(220, 30%, 20%), hsl(220, 50%, 30%));
+  user-select: none;
 }
 
 #content {
@@ -171,7 +172,7 @@ body {
   transition: bottom 200ms ease-out;
   transform-origin: 50% 200%;
 }.go-to-menu:hover {
-  bottom: 0;
+  bottom: -10px;
   animation: sign-sway 2s ease-out infinite;
 }
 
