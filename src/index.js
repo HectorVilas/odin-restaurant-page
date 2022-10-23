@@ -26,6 +26,9 @@ function navBar(){
     const goToMenu = document.createElement("div");
     goToMenu.classList.add("go-to-menu", i === 0 ? "menu-left" : "menu-right");
     goToMenu.addEventListener("click", menuSwap);
+    goToMenu.addEventListener("animationend", function() {
+      this.classList.remove("animate");
+    });
 
     sign.appendChild(para);
     sign.appendChild(hand);
@@ -35,6 +38,9 @@ function navBar(){
   };
 
   function menuSwap(){
+    //block click action before signs change text
+    if(this.className.includes("animate")) return;
+
     this.className.includes("menu-left") ? menuIdx-- : menuIdx++ ;
     //cycle left fix
     if(menuIdx < 0) menuIdx = menuList.length - 1;
@@ -42,9 +48,14 @@ function navBar(){
     
     content.replaceChildren(menuList[i]);
     
-    const navParas = document.querySelectorAll(".go-to-menu p");
-    navParas[0].innerText = i == 0 ? "About" : i == 1 ? "Menu" : "Toys";
-    navParas[1].innerText = i == 0 ? "Toys" : i == 1 ? "About" : "Menu";
+    setTimeout(() => {
+      const navParas = document.querySelectorAll(".go-to-menu p");
+      navParas[0].innerText = i == 0 ? "About" : i == 1 ? "Menu" : "Toys";
+      navParas[1].innerText = i == 0 ? "Toys" : i == 1 ? "About" : "Menu";
+    }, 100);
+    
+    const navSign = document.querySelectorAll(".go-to-menu");
+    navSign.forEach(sign => sign.classList.add("animate"));
   };
 
   return navBar;
@@ -80,7 +91,6 @@ function starfield(){
     const star = document.createElement("div");
     const rand = Math.random() * (animMax - animMin ) + animMin;
     star.classList.add("star");
-    console.log(rand);
     star.style.animationDuration = `${rand}s`;
 
     angle.appendChild(star);

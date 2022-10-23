@@ -184,6 +184,11 @@ body {
   right: 10px;
 }
 
+.menu-left.animate {animation: spin 1.5s ease-in reverse;}
+.menu-right.animate {animation: spin 1.5s ease-out;}
+
+@keyframes spin { 20%, 80% {bottom: 0;} 100% {rotate: 360deg;} }
+
 .nav-bar .sign {
   background: url(./media/images/nav/wooden-sign.png) no-repeat;
   background-size: cover;
