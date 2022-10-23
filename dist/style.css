@@ -361,11 +361,11 @@ body {
   animation: hand-bounce var(--hand-animation-duration) var(--hand-animation-timing) infinite alternate;
 }
 
-.hand-palm { animation-delay: 0ms;}
-.hand-little-finger { animation-delay: 90ms;}
-.hand-middle-finger { animation-delay: 60ms;}
-.hand-index { animation-delay: 30ms;}
-.hand-thumb { animation-delay: 15ms;}
+img.hand-palm { animation-delay: 0ms;}
+img.hand-little-finger { animation-delay: 90ms;}
+img.hand-middle-finger { animation-delay: 60ms;}
+img.hand-index { animation-delay: 30ms;}
+img.hand-thumb { animation-delay: 15ms;}
 
 @keyframes hand-bounce {
   0% {transform: translateY(0%);}
