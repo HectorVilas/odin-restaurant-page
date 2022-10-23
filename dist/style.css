@@ -8,6 +8,7 @@
   --hand-size: 50vmin;
   --hand-animation-duration: 350ms;
   --hand-animation-timing: cubic-bezier(.6,.1,.9,.34);
+  --tunnel-anim-duration: 5s;
 }
 
 body {
@@ -45,7 +46,7 @@ body {
   width: 0vmax;
   height: 0vmax;
   /* border-radius: 50%; */
-  animation: fly-through 5s cubic-bezier(.95,.05,.8,.04) infinite;
+  animation: fly-through var(--tunnel-anim-duration) cubic-bezier(.95,.05,.8,.04) infinite;
 }
 .ring:nth-child(1) {
   animation-delay: 0s;
@@ -59,7 +60,7 @@ body {
     transparent 70%
   );
 } .ring:nth-child(2) {
-  animation-delay: 1s;
+  animation-delay: calc(var(--tunnel-anim-duration) * 20 / 100);
   background: radial-gradient(
     transparent 60%,
     hsl(72, 100%, 30%) 60%,
@@ -70,7 +71,7 @@ body {
     transparent 70%
   );
 } .ring:nth-child(3) {
-  animation-delay: 2s;
+  animation-delay: calc(var(--tunnel-anim-duration) * 40 / 100);
   background: radial-gradient(
     transparent 60%,
     hsl(144, 100%, 30%) 60%,
@@ -81,7 +82,7 @@ body {
     transparent 70%
   );
 } .ring:nth-child(4) {
-  animation-delay: 3s;
+  animation-delay: calc(var(--tunnel-anim-duration) * 60 / 100);
   background: radial-gradient(
     transparent 60%,
     hsl(216, 100%, 30%) 60%,
@@ -92,7 +93,7 @@ body {
     transparent 70%
   );
 } .ring:nth-child(5) {
-  animation-delay: 4s;
+  animation-delay: calc(var(--tunnel-anim-duration) * 80 / 100);
   background: radial-gradient(
     transparent 60%,
     hsl(288, 100%, 30%) 60%,
