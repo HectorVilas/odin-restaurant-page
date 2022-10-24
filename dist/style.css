@@ -5,9 +5,8 @@
   --menu-anim-displacement: 5px;
   --menu-anim-time-h: 1.5s;
   --menu-anim-time-v: 1.25s;
-  --hand-size: 50vmin;
-  --hand-animation-duration: 350ms;
-  --hand-animation-timing: cubic-bezier(.6,.1,.9,.34);
+  --hand-anim-duration: 350ms;
+  --hand-anim-timing: cubic-bezier(.6,.1,.9,.34);
   --tunnel-anim-duration: 5s;
 }
 
@@ -340,14 +339,16 @@ body {
 }
 
 .hand {
+  --hand-size: 20vmin;
   position: absolute;
   left: 50%;
   top: 20%;
-  /* width: 100px; */
   height: var(--hand-size);
   display: flex;
   justify-content: center;
-  animation: hand-bounce-scale var(--hand-animation-duration) var(--hand-animation-timing) infinite alternate;
+  animation:
+    hand-bounce-scale var(--hand-anim-duration) var(--hand-anim-timing) infinite alternate,
+    hand-apparition 3s forwards;
   transform-origin: 50% 100%;
 }
 @keyframes hand-bounce-scale {
@@ -356,11 +357,16 @@ body {
   100% {transform: scaleY(95%);}
 }
 
+@keyframes hand-apparition {
+  0% {rotate: 0deg; transform-origin: 350% 550%; left: -0%; top: -50%;}
+  100% {rotate: 360deg; transform-origin: 50% 100%;}
+}
+
 .hand img {
   position: absolute;
   height: 100%;
   width: auto;
-  animation: hand-bounce var(--hand-animation-duration) var(--hand-animation-timing) infinite alternate;
+  animation: hand-bounce var(--hand-anim-duration) var(--hand-anim-timing) infinite alternate;
 }
 
 img.hand-palm { animation-delay: 0ms;}
