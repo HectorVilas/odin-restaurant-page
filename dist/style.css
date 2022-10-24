@@ -48,6 +48,13 @@ body {
   /* border-radius: 50%; */
   animation: fly-through var(--tunnel-anim-duration) cubic-bezier(.95,.05,.8,.04) infinite;
 }
+
+@keyframes fly-through {
+  0% {width: 0vmax; height: 0vmax; opacity: 0;}
+  70% {opacity: 100;}
+  100% {width: 200vmax; height: 200vmax;}
+}
+
 .ring:nth-child(1) {
   animation-delay: 0s;
   background: radial-gradient(
@@ -103,12 +110,6 @@ body {
     hsl(288, 100%, 30%) 70%,
     transparent 70%
   );
-}
-
-@keyframes fly-through {
-  0% {width: 0vmax; height: 0vmax; opacity: 0;}
-  70% {opacity: 100;}
-  100% {width: 200vmax; height: 200vmax;}
 }
 
 
@@ -334,21 +335,25 @@ body {
 
 /* - - - about - - - */
 #about {
+  position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hand {
   --hand-size: 25vmin;
   position: absolute;
   left: 50%;
-  top: 20%;
+  top:  calc(40% - var(--hand-size) * 1.5);
   height: var(--hand-size);
   display: flex;
   justify-content: center;
   animation:
     hand-bounce-scale var(--hand-anim-duration) var(--hand-anim-timing) infinite alternate,
-    hand-apparition 3s forwards;
+    hand-apparition 2.25s forwards;
   
 }
 @keyframes hand-bounce-scale {
@@ -388,6 +393,68 @@ img.hand-thumb { animation-delay: 15ms;}
   100% {rotate: 5deg;}
 }
 
+#map {
+  --width: 80vmin;
+  --height: 50vmin;
+  background-color: hsl(215, 90%, 75%);
+  position: absolute;
+  top: calc(40% - var(--height) / 2 );
+  left: calc(50% - var(--width) / 2);
+  width: var(--width);
+  height: var(--height);
+  animation: map-grow cubic-bezier(.18,.89,.32,1.28)  1s;
+}
+
+@keyframes map-grow {
+  0% { scale: 0% 0%;}
+  100% { scale: 100% 100%;}
+}
+
+.find-us {
+  position: absolute;
+  bottom: 10%;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: text-show 1s ease-out;
+}
+
+@keyframes text-show { from {bottom: -50% } }
+
+.find-us p {
+  color: white;
+  font-size: 3rem;
+  font-family: cursive, 'Courier New', Courier, monospace;
+  /* text-shadow: 0 0 .5rem black; */
+  font-weight: 900;
+  margin: 0;
+  animation:
+    text-rotate 1000ms ease-in-out alternate-reverse infinite,
+    text-scale 815ms ease-in-out alternate-reverse infinite,
+    text-colors var(--tunnel-anim-duration) linear infinite;
+}
+.find-us p:nth-child(2){ animation-delay: 250ms;}
+
+@keyframes text-rotate { 0% {rotate: 5deg;} 100% { rotate: -5deg;} }
+@keyframes text-scale { 0% {scale: 95%;} 100% {scale: 105%;} }
+@keyframes text-colors {
+  0%, 100% {
+    color: hsl(0, 100%, 60%);
+  }
+  20% {
+    color: hsl(72, 100%, 60%);
+  }
+  40% {
+    color: hsl(144, 100%, 60%);
+  }
+  60% {
+    color: hsl(216, 100%, 60%);
+  }
+  80% {
+    color: hsl(288, 100%, 60%);
+  }
+}
 
 /* for testing */
 
