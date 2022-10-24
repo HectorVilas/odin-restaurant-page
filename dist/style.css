@@ -184,9 +184,9 @@ body {
   right: 10px;
 }
 
-.menu-left.animate {animation: sign-spin 1.25s
+.menu-left.animate {animation: sign-spin 1s
   cubic-bezier(.6,-0.08,.74,.05)/*ease in*/ reverse;}
-.menu-right.animate {animation: sign-spin 1.25s
+.menu-right.animate {animation: sign-spin 1s
   cubic-bezier(.18,.89,.32,1.08)/*-ease out*/;}
 
 @keyframes sign-spin { 20%, 80% {bottom: -10px;} 100% {rotate: 360deg;} }
@@ -339,7 +339,7 @@ body {
 }
 
 .hand {
-  --hand-size: 20vmin;
+  --hand-size: 25vmin;
   position: absolute;
   left: 50%;
   top: 20%;
@@ -349,7 +349,7 @@ body {
   animation:
     hand-bounce-scale var(--hand-anim-duration) var(--hand-anim-timing) infinite alternate,
     hand-apparition 3s forwards;
-  transform-origin: 50% 100%;
+  
 }
 @keyframes hand-bounce-scale {
   0% {transform: scaleY(100%);}
@@ -366,7 +366,10 @@ body {
   position: absolute;
   height: 100%;
   width: auto;
-  animation: hand-bounce var(--hand-anim-duration) var(--hand-anim-timing) infinite alternate;
+  animation:
+    hand-bounce var(--hand-anim-duration) var(--hand-anim-timing) infinite alternate,
+    hand-sway calc(var(--hand-anim-duration) * 2) ease-in-out infinite alternate-reverse;
+  transform-origin: 50% 100%;
 }
 
 img.hand-palm { animation-delay: 0ms;}
@@ -380,6 +383,10 @@ img.hand-thumb { animation-delay: 15ms;}
   100% {transform: translateY(5%);}
 }
 
+@keyframes hand-sway {
+  0% {rotate: -5deg;}
+  100% {rotate: 5deg;}
+}
 
 
 /* for testing */
