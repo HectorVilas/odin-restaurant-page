@@ -4,19 +4,43 @@ export function toys(){
   const toys = document.createElement("div");
   toys.id = "toys";
 
+  const paras = document.createElement("div");
+  paras.classList.add("paras-happy-lunch");
+
+  const para1 = document.createElement("p");
+  para1.classList.add("happy-lunch");
+  para1.innerText = "Get one of the best toys";
+  const para2 = document.createElement("p");
+  para2.classList.add("happy-lunch");
+  para2.innerText = "with your Happy Lunch!";
+  paras.appendChild(para1);
+  paras.appendChild(para2);
+
   const carousel = document.createElement("div");
   carousel.classList.add("carousel");
 
+  const carouselSpin = document.createElement("div");
+  carouselSpin.classList.add("carousel-spin");
+  
+  const toyNames = ["Bar Sinso", "Peabody", "Arachnid Dude", "Sponge Rob",
+  "Sorny", "Snitch", "Green Mario", "Flip & Flop", "Bat Person",
+  "Yellow Mice"];
+
+  //menu left and right buttons
   for(let i = 0; i < 2; i++){
+    const img = document.createElement("img");
+    img.src = "./media/images/hands/hand.svg";
+    
     const button = document.createElement("div");
     const btnClass = i === 0 ? "btn-carousel-left" : "btn-carousel-right";
     button.classList.add("btn-carousel", btnClass);
-    button.innerText = i === 0 ? "<" : ">";
     button.addEventListener("click", rotate);
 
+    button.appendChild(img);
     carousel.appendChild(button);
   }
 
+  //function for buttons
   function rotate(){
     const spin = document.querySelector(".carousel-spin");
     this.className.includes("btn-carousel-left")
@@ -24,15 +48,8 @@ export function toys(){
     spin.style.rotate = `${rotation}deg`;
   }
 
-  const carouselSpin = document.createElement("div");
-  carouselSpin.classList.add("carousel-spin");
-  
-  const toyNames = ["Bar Sinso", "Peabody", "Aracnid Dude", "Sponge Rob",
-  "Sorny", "Snitch", "Green Mario", "Flip & Flop", "Bat Person",
-  "Yellow Mice"];
-
+  //create a div for each toy
   for(let i = 0; i < 10; i++){
-
     const toyDiv = document.createElement("div");
     
     toyDiv.classList.add("toy");
@@ -47,6 +64,7 @@ export function toys(){
   }
 
   carousel.appendChild(carouselSpin);
+  toys.appendChild(paras);
   toys.appendChild(carousel);
 
   return toys;
