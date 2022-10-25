@@ -556,7 +556,10 @@ img.hand-thumb { animation-delay: 15ms;}
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: happy-lunch-text-show 1s ease-out;
 }
+
+@keyframes happy-lunch-text-show { from {transform: translateY(-50vmin)} }
 
 .happy-lunch {
   color: white;
