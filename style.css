@@ -7,7 +7,7 @@
   --menu-anim-time-v: 1.25s;
   --hand-anim-duration: 350ms;
   --hand-anim-timing: cubic-bezier(.6,.1,.9,.34);
-  --tunnel-anim-duration: 10s;
+  --tunnel-anim-duration: 5s;
 }
 
 body {
@@ -461,15 +461,16 @@ img.hand-thumb { animation-delay: 15ms;}
 
 #toys {
   isolation: isolate;
-  --carousel-size: 80vmin;
+  --carousel-size: 70vmin;
   position: relative;
   width: 100vw;
   height: 100vh;
   padding: 0;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
 }
 
 .carousel {
@@ -480,32 +481,44 @@ img.hand-thumb { animation-delay: 15ms;}
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  animation: carousel-show 1s cubic-bezier(.18,.89,.32,1.28);
+}
+
+@keyframes carousel-show {
+  from {scale: 0%}
 }
 
 .btn-carousel {
   z-index: 1;
   position: absolute;
-  height: 30vmin;
-  width: 100px;
-  outline: 3px solid red;
-}
-.btn-carousel-left {
-  left: 1rem;
-}
-.btn-carousel-right {
-  right: 1rem;
+  bottom: 10%;
+  width: 10vmin;
+  padding: 1rem;
 }
 
-/*temporal properties*/
-.btn-carousel {
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 5rem;
+.btn-carousel img {
+  width: 100%;
+  height: auto;
 }
-/*temporal properties*/
+.btn-carousel-left img { transform: scaleX(-1); }
+.btn-carousel-left { left: 0; }
+.btn-carousel-right { right: 0; }
+
+.btn-carousel-left:hover img {
+  animation: carousel-btn-left 225ms alternate infinite;
+}
+.btn-carousel-right:hover img {
+  animation: carousel-btn-right 225ms alternate infinite;
+}
+
+@keyframes carousel-btn-left {
+  from {translate: 0rem 0rem; rotate: 0deg;}
+  to {translate: .5rem -.5rem; rotate: 10deg;}
+}
+@keyframes carousel-btn-right {
+  from {translate: 0rem 0rem; rotate: 0deg;}
+  to {translate: -.5rem -.5rem; rotate: -10deg;}
+}
 
 .carousel-spin {
   position: absolute;
@@ -516,7 +529,7 @@ img.hand-thumb { animation-delay: 15ms;}
   align-items: center;
   rotate: 0deg;
   translate: 0 200%;
-  transition: 250ms cubic-bezier(.68,-0.55,.27,1.55);
+  transition: rotate 350ms cubic-bezier(.68,-0.55,.27,1.55);
 }
 
 .toy {
@@ -537,6 +550,23 @@ img.hand-thumb { animation-delay: 15ms;}
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 3rem;
   text-shadow: 0 0 .5rem black;
+}
+
+.paras-happy-lunch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.happy-lunch {
+  color: white;
+  font-size: 3rem;
+  margin: 0;
+  animation: 
+    text-rotate 1000ms ease-in-out alternate-reverse infinite,
+    text-scale 815ms ease-in-out alternate-reverse infinite,
+    text-shadow-colors var(--tunnel-anim-duration) linear infinite,
+    text-colors var(--tunnel-anim-duration) 100ms linear infinite;
 }
 
 
