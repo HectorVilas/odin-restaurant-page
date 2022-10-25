@@ -7,7 +7,7 @@
   --menu-anim-time-v: 1.25s;
   --hand-anim-duration: 350ms;
   --hand-anim-timing: cubic-bezier(.6,.1,.9,.34);
-  --tunnel-anim-duration: 5s;
+  --tunnel-anim-duration: 10s;
 }
 
 body {
@@ -426,34 +426,32 @@ img.hand-thumb { animation-delay: 15ms;}
   color: white;
   font-size: 3rem;
   font-family: cursive, 'Courier New', Courier, monospace;
-  /* text-shadow: 0 0 .5rem black; */
   font-weight: 900;
   margin: 0;
   animation:
     text-rotate 1000ms ease-in-out alternate-reverse infinite,
     text-scale 815ms ease-in-out alternate-reverse infinite,
-    text-colors var(--tunnel-anim-duration) linear infinite;
+    text-shadow-colors var(--tunnel-anim-duration) linear infinite,
+    text-colors var(--tunnel-anim-duration) 100ms linear infinite;
 }
 .find-us p:nth-child(2){ animation-delay: 250ms;}
 
 @keyframes text-rotate { 0% {rotate: 5deg;} 100% { rotate: -5deg;} }
 @keyframes text-scale { 0% {scale: 95%;} 100% {scale: 105%;} }
 @keyframes text-colors {
-  0%, 100% {
-    color: hsl(0, 100%, 60%);
-  }
-  20% {
-    color: hsl(72, 100%, 60%);
-  }
-  40% {
-    color: hsl(144, 100%, 60%);
-  }
-  60% {
-    color: hsl(216, 100%, 60%);
-  }
-  80% {
-    color: hsl(288, 100%, 60%);
-  }
+  0%, 100% { color: hsl(0, 100%, 60%); }
+  20% { color: hsl(72, 100%, 60%); }
+  40% { color: hsl(144, 100%, 60%); }
+  60% { color: hsl(216, 100%, 60%); }
+  80% { color: hsl(288, 100%, 60%); }
+}
+@keyframes text-shadow-colors {
+  0%, 100% { text-shadow: 0 0 .25rem hsl(72, 100%, 60%); }
+  20% { text-shadow: 0 0 .25rem hsl(144, 100%, 60%); }
+  40% { text-shadow: 0 0 .25rem hsl(216, 100%, 60%); }
+  60% { text-shadow: 0 0 .25rem hsl(288, 100%, 60%); }
+  80% { text-shadow: 0 0 .25rem hsl(0, 100%, 60%); }
+  
 }
 
 /* for testing */
